@@ -6,6 +6,8 @@ ECHO ษออออออ F-19 Stealth Fighter Scenario Selector ออออออป
 ECHO บ  1) Central Europe                                 บ
 ECHO บ  2) Middle East                                    บ
 ECHO บ  3) Vietnam                                        บ
+ECHO บ Note: Selected Scenario will be available at       บ
+ECHO บ [1;36mCentral Europe[1;32m slot in the game menu.              บ
 ECHO ฬอออออออออออออออออออ Pilot Backup อออออออออออออออออออน
 ECHO บ  4) Save backup roster                             บ
 ECHO บ  5) Restore backup roster                          บ
@@ -15,12 +17,12 @@ ECHO บ  7) Select F-117 3d model                          บ
 ECHO ฬออออออออออออออออออออออออออออออออออออออออออออออออออออน
 ECHO บ  8) Exit to DOS                                    บ
 ECHO บ  9) Exit to Host OS                                บ
-ECHO ฬออออออออออออออออออออออออออออออออออออออออออออออออออออน
-ECHO บ  Choose [1;36mCentral Europe[1;32m in game.                    บ
+ECHO บ  0) Start the game                                 บ
 ECHO ศอออออออออออออออออออออออออออออออออออออออ[5m[1;33m by damson [0m[1;32m[42mออผ
 ECHO [0m
 
-choice /c123456789 /s Choose your scenario / option [1-9]: /n
+choice /c1234567890 /s Select your option [0-9]: /n
+if errorlevel 10 goto game
 if errorlevel 9 goto exit
 if errorlevel 8 goto cmd
 if errorlevel 7 goto f117
@@ -33,18 +35,21 @@ if errorlevel 1 goto ce
 
 :ce
 copy ce\*.* .
-f19 /aa
-exit
+cls
+ECHO [5m[1;35mCENTRAL EUROPE LOADED[0m
+goto main
 
 :me
 copy me\*.* .
-f19 /aa
-exit
+cls
+ECHO [5m[1;35mMIDDLE EAST LOADED[0m
+goto main
 
 :vn
 copy vn\*.* .
-f19 /aa
-exit
+cls
+ECHO [5m[1;35mVIETNAM LOADED[0m
+goto main
 
 :save
 copy roster.fil .\backup
@@ -53,9 +58,25 @@ ECHO [5m[1;31mROSTER SAVED[0m
 goto main
 
 :restore
+IF EXIST .\backup\roster.fil goto filexist
+IF NOT EXIST .\backup\roster.fil goto nofile
+:filexist
+cls
+choice /cyn /s [1;31mARE YOU SURE, THIS WILL OVERWRITE YOUR CURRENT ROSTER? [Y/N][0m /n
+if errorlevel 2 goto restoren
+if errorlevel 1 goto restorey
+:restoren
+cls
+ECHO [5m[1;32mROSTER NOT RESTORED[0m
+goto main
+:restorey
 copy .\backup\roster.fil .
 cls 
 ECHO [5m[1;32mROSTER RESTORED[0m
+goto main
+:nofile
+cls
+ECHO [1;31mThere is no backup yet, make one first![0m
 goto main
 
 :f19
@@ -75,3 +96,10 @@ exit
 
 :cmd
 cls
+goto end
+
+:game
+f19 /aa
+goto main
+
+:end

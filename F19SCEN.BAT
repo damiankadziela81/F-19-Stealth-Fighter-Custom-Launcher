@@ -21,7 +21,8 @@ ECHO บ  0) Start the game                                 บ
 ECHO ศอออออออออออออออออออออออออออออออออออออออ[5m[1;33m by damson [0m[1;32m[42mออผ
 ECHO [0m
 
-choice /c1234567890 /s Select your option [0-9]: /n
+choice /c1234567890s /s Select your option [0-9]: /n
+if errorlevel 11 goto secret
 if errorlevel 10 goto game
 if errorlevel 9 goto exit
 if errorlevel 8 goto cmd
@@ -61,7 +62,7 @@ if errorlevel 2 goto saven
 if errorlevel 1 goto savey
 :saven
 cls
-ECHO [5m[1;32mROSTER NOT SAVED[0m
+ECHO [5m[1;31mROSTER NOT SAVED[0m
 goto main
 :savey
 copy roster.fil .\backup
@@ -112,6 +113,34 @@ goto end
 
 :game
 f19 /aa
+goto main
+
+:secret
+cls
+ECHO [1;37m[44m
+ECHO ษอออ F-19 Stealth Fighter Secret Sound Board Selector อออป
+ECHO บ  1) PC Speaker                                         บ
+ECHO บ  2) Tandy                                              บ
+ECHO บ  3) Adlib                                              บ
+ECHO บ  4) Roland                                             บ
+ECHO บ  5) Go back to previous menu                           บ
+ECHO ฬออออออออออออออ Emulation Considerations ออออออออออออออออน
+ECHO บ For Roland to work properly you need MT32.ROM file     บ
+ECHO บ and MUNT or Special DOSBox build that supports it.     บ
+ECHO บ For Tandy to work change [1;32mmachine=tandy[1;37m in [1;32mdosbox.conf[1;37m  บ
+ECHO บ and select [1;33m3) Tandy 1000 (16 colors)[1;37m graphics mode.    บ
+ECHO ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+ECHO [0m
+choice /c12345 /s Select your option [1-5]: /n
+if errorlevel 5 goto back
+if errorlevel 4 f19 /ar
+if errorlevel 3 f19 /aa
+if errorlevel 2 f19 /at
+if errorlevel 1 f19
+goto main
+
+:back
+cls
 goto main
 
 :end

@@ -10,8 +10,11 @@ ECHO  ------------------------------------------- .
 ECHO   4) Save backup roster                      .
 ECHO   5) Restore backup roster                   .
 ECHO  ------------------------------------------- .
-ECHO   6) Command Line                            .
-ECHO   7) Exit                                    .
+ECHO   6) Select F-19 3d model                    .
+ECHO   7) Select F-117 3d model                   .
+ECHO  ------------------------------------------- .
+ECHO   8) Command Line                            .
+ECHO   9) Exit                                    .
 ECHO  ------------------------------------------- .
 ECHO   Choose [1;36mCentral Europe[1;32m in game.             .
 ECHO  ------------------------------------------- .
@@ -19,9 +22,11 @@ ECHO [5m[1;33m  by damson[0m[1;32m[42m                                  .
 ECHO ==============================================
 ECHO [0m
 
-choice /c1234567 /s Choose your scenario / option? [1-7]: /n
-if errorlevel 7 goto exit
-if errorlevel 6 goto cmd
+choice /c123456789 /s Choose your scenario / option [1-9]: /n
+if errorlevel 9 goto exit
+if errorlevel 8 goto cmd
+if errorlevel 7 goto f117
+if errorlevel 6 goto f19
 if errorlevel 5 goto restore
 if errorlevel 4 goto save
 if errorlevel 3 goto vn
@@ -53,6 +58,18 @@ goto main
 copy .\backup\roster.fil .
 cls 
 ECHO [5m[1;32mROSTER RESTORED[0m
+goto main
+
+:f19
+copy .\3dmodel\stflt19.3d3 stflt.3d3
+cls
+ECHO [5m[1;34mF-19 3D MODEL LOADED[0m
+goto main
+
+:f117
+copy .\3dmodel\stflt117.3d3 stflt.3d3
+cls
+ECHO [5m[1;34mF-117 3D MODEL LOADED[0m
 goto main
 
 :exit

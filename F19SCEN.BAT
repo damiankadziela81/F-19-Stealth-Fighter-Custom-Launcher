@@ -117,21 +117,30 @@ goto main
 
 :secret
 cls
-ECHO [1;37m[44m
-ECHO ษอออ F-19 Stealth Fighter Secret Sound Board Selector อออป
-ECHO บ  1) PC Speaker                                         บ
-ECHO บ  2) Tandy                                              บ
-ECHO บ  3) Adlib                                              บ
-ECHO บ  4) Roland                                             บ
-ECHO บ  5) Go back to previous menu                           บ
-ECHO ฬออออออออออออออ Emulation Considerations ออออออออออออออออน
-ECHO บ For Roland to work properly you need MT32.ROM file     บ
-ECHO บ and MUNT or Special DOSBox build that supports it.     บ
-ECHO บ For Tandy to work change [1;32mmachine=tandy[1;37m in [1;32mdosbox.conf[1;37m  บ
-ECHO บ and select [1;33m3) Tandy 1000 (16 colors)[1;37m graphics mode.    บ
-ECHO ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
-ECHO [0m
-choice /c12345 /s Select your option [1-5]: /n
+ECHO.
+ECHO  [1;37m[44m ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป [0m
+ECHO  [1;37m[44m บ            F-19 Stealth Fighter - Secret Sound Board Selector            บ [0m
+ECHO  [1;37m[44m บ                                                                          บ [0m
+ECHO  [1;37m[44m บ                        Emulation Considerations                          บ [0m
+ECHO  [1;37m[44m บ                                                                          บ [0m
+ECHO  [1;37m[44m บ     [1;33mPC Speaker[1;37m and [1;33mAdLib[1;37m will work without additional steps needed.      บ [0m
+ECHO  [1;37m[44m บ                                                                          บ [0m
+ECHO  [1;37m[44m บ For [1;33mRoland[1;37m to work properly you need an actual MT-32 module or emulator  บ [0m
+ECHO  [1;37m[44m บ like MUNT or custom DOSBox build (e.g. DOSBox ECE and proper ROM files). บ [0m
+ECHO  [1;37m[44m บ                                                                          บ [0m
+ECHO  [1;37m[44m บ    For [1;33mTandy[1;37m to work properly change [1;32mmachine=tandy[1;37m in [1;32mdosbox.conf[1;37m and    บ [0m
+ECHO  [1;37m[44m บ           select [1;33m3) Tandy 1000 (16 colors)[1;37m graphics mode.                บ [0m
+ECHO  [1;37m[44m บ                                                                          บ [0m
+ECHO  [1;37m[44m ศออออออออออออออออออออออออออออออออออออออออออออออออออ[5m[1;33m by damson [0m[1;37m[44m23/12/2022 ออผ [0m
+ECHO [1;33m
+ECHO                             1) PC Speaker
+ECHO                             2) Tandy
+ECHO                             3) Adlib
+ECHO                             4) Roland
+ECHO                             5) Go back to previous menu[0m
+ECHO.
+
+choice /c12345 /s [1;33m                     Select your option [1-5]:[0m /n
 if errorlevel 5 goto back
 if errorlevel 4 f19 /ar
 if errorlevel 3 f19 /aa

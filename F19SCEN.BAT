@@ -54,7 +54,10 @@ goto main
 
 :save
 IF EXIST .\backup\roster.fil goto savexist
-IF NOT EXIST .\backup\roster.fil goto savey
+IF NOT EXIST .\backup\roster.fil (
+md backup
+goto savey
+)
 :savexist
 cls
 choice /cyn /s [1;31mARE YOU SURE, THIS WILL OVERWRITE YOUR BACKUP ROSTER? [Y/N][0m /n

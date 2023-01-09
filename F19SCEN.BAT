@@ -19,7 +19,7 @@ ECHO [5m[1;33m  by damson[0m[1;32m[42m                                  .
 ECHO ==============================================
 ECHO [0m
 
-choice /c1234567 /s Chose your scenario / option? [1-7]: /n
+choice /c1234567 /s Choose your scenario / option? [1-7]: /n
 if errorlevel 7 goto exit
 if errorlevel 6 goto cmd
 if errorlevel 5 goto restore

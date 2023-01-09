@@ -52,6 +52,18 @@ ECHO [5m[1;35mVIETNAM LOADED[0m
 goto main
 
 :save
+IF EXIST .\backup\roster.fil goto savexist
+IF NOT EXIST .\backup\roster.fil goto savey
+:savexist
+cls
+choice /cyn /s [1;31mARE YOU SURE, THIS WILL OVERWRITE YOUR BACKUP ROSTER? [Y/N][0m /n
+if errorlevel 2 goto saven
+if errorlevel 1 goto savey
+:saven
+cls
+ECHO [5m[1;32mROSTER NOT SAVED[0m
+goto main
+:savey
 copy roster.fil .\backup
 cls
 ECHO [5m[1;31mROSTER SAVED[0m

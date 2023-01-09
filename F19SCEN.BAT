@@ -2,24 +2,22 @@
 cls
 :main
 ECHO [1;32m[42m
-ECHO === F-19 Stealth Fighter Scenario Selector ===
-ECHO   1) Central Europe                          .
-ECHO   2) Middle East                             .
-ECHO   3) Vietnam                                 .
-ECHO  ------------------------------------------- .
-ECHO   4) Save backup roster                      .
-ECHO   5) Restore backup roster                   .
-ECHO  ------------------------------------------- .
-ECHO   6) Select F-19 3d model                    .
-ECHO   7) Select F-117 3d model                   .
-ECHO  ------------------------------------------- .
-ECHO   8) Command Line                            .
-ECHO   9) Exit                                    .
-ECHO  ------------------------------------------- .
-ECHO   Choose [1;36mCentral Europe[1;32m in game.             .
-ECHO  ------------------------------------------- .
-ECHO [5m[1;33m  by damson[0m[1;32m[42m                                  .
-ECHO ==============================================
+ECHO ษออออออ F-19 Stealth Fighter Scenario Selector ออออออป
+ECHO บ  1) Central Europe                                 บ
+ECHO บ  2) Middle East                                    บ
+ECHO บ  3) Vietnam                                        บ
+ECHO ฬอออออออออออออออออออ Pilot Backup อออออออออออออออออออน
+ECHO บ  4) Save backup roster                             บ
+ECHO บ  5) Restore backup roster                          บ
+ECHO ฬอออออออออออออ External Model Selector ออออออออออออออน
+ECHO บ  6) Select F-19 3d model                           บ
+ECHO บ  7) Select F-117 3d model                          บ
+ECHO ฬออออออออออออออออออออออออออออออออออออออออออออออออออออน
+ECHO บ  8) Exit to DOS                                    บ
+ECHO บ  9) Exit to Host OS                                บ
+ECHO ฬออออออออออออออออออออออออออออออออออออออออออออออออออออน
+ECHO บ  Choose [1;36mCentral Europe[1;32m in game.                    บ
+ECHO ศอออออออออออออออออออออออออออออออออออออออ[5m[1;33m by damson [0m[1;32m[42mออผ
 ECHO [0m
 
 choice /c123456789 /s Choose your scenario / option [1-9]: /n
